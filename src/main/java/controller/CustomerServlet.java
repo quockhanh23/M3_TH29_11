@@ -121,11 +121,12 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-    private void viewCustomer (HttpServletRequest request, HttpServletResponse response) {
+
+    private void viewCustomer(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = this.customerService.findById(id);
         RequestDispatcher dispatcher;
-        if(customer == null){
+        if (customer == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
             request.setAttribute("customer", customer);
@@ -139,6 +140,7 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
     private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = this.customerService.findById(id);
@@ -157,6 +159,7 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = this.customerService.findById(id);
